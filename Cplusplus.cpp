@@ -22,9 +22,9 @@ void clockType::gettime() const {
 }
 
 void clockType::timer(int hour, int mins, int secs) const{
-    for(hour; hour>0; hour--){
-      for(mins; mins>0 && mins<60;mins-- ){
-        for(secs;secs>0 && secs<60;secs--){
+    for(hour; hour>=0 && hour<12; hour--){
+      for(mins; mins>=0 && mins<60;mins-- ){
+        for(secs;secs>=0 && secs<60;secs--){
            std::cout<<hour+":"<<mins+":"<<secs<<std::endl;
         } 
       }
