@@ -1,34 +1,66 @@
 #include <iostream>
-// function in c++
-int *functionadd (int *a, int *b)
-{   
-         *a += *b;
-        return a ;
-        
+#define arrlim 100
 
-}
-int func2(int num, int *p)
-{
-    int y =  num + *p;
+class clockType{
+  private:
+    int hr,min,sec;
+  
+  public:
+    void settime(int,int,int);
+    void gettime() const;
+    void timer(int,int,int) const;
+};
 
+void clockType::settime(int hour,int mins,int secs){
+   hr = hour;
+   min = mins;
+   sec = secs;
 }
-//structures in c++
-  struct home {
-        char chair[5]="home" ;
-        int windows;
-        struct location{
-         char *place[5] = {"anjai","kansa","accra"};
-          }places;
-    }afie;
-//pointers in C++
-   char func(char *arr[])
+
+void clockType::gettime() const {
+    std::cout<<hr+":"<<min+":"<<sec<<std::endl;
+}
+
+void clockType::timer(int hour, int mins, int secs) const{
+    for(hour; hour>0; hour--){
+      for(mins; mins>0 && mins<60;mins-- ){
+        for(secs;secs>0 && secs<60;secs--){
+           std::cout<<hour+":"<<mins+":"<<secs<<std::endl;
+        } 
+      }
+    }
+}
+struct studenType{
+
+  std::string home;
+  std::string type;
+  std::string address;
+  std::string func1 (){
+    std::cout<<"you made it "<<std::endl;
+  }
+     
+};
+
+void collect(studenType student[])
 {
-    
-     for(char *p = (*++arr);*p != '\0';p++ )
-       std::cout<<*p<<std::endl; 
+  std::cout <<student[1].home<<std::endl;
 }
- 
+
+struct studenType student(studenType &structvar){
+  return structvar;
+}
+
 main(){
-    
-    
+  
+   studenType guess[arrlim];
+   studenType clen;
+  
+
+   guess[1] = {"anaji","young","12333"};
+   
+  collect(guess);
+  student(clen);
+return 0;
+  
 }
+
