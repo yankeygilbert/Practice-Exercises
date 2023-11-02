@@ -113,6 +113,8 @@ main(){
  int *collecttime = Time.time(&hour,&min,&sec);
  
  std::cout << collecttime[1]<<std::endl;
+
+ 
 return 0;
 
 
