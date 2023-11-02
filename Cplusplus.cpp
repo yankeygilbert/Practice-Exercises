@@ -10,7 +10,7 @@ class clockType{
   public:
   
     void settime(int,int,int);
-    void gettime() const;
+    void printTime() const;
     void timer(int,int,int) const;
     bool equaltime(const clockType &) const;
     clockType();
@@ -19,7 +19,9 @@ class clockType{
 //class implementation
 
 clockType::clockType(){
-  (hr,min,sec)=0;
+  hr=0;
+  min=0;
+  sec=0;
  
 }
 void clockType::settime(int hour,int mins,int secs){
@@ -28,8 +30,8 @@ void clockType::settime(int hour,int mins,int secs){
    sec = secs;
 }
 
-void clockType::gettime() const {
-    std::cout<<hr+":"<<min+":"<<sec<<std::endl;
+void clockType::printTime() const {
+    std::cout<<hr<<":"<<min<<":"<<sec<<std::endl;
 }
 
 void clockType::timer(int hour, int mins, int secs) const{
@@ -93,6 +95,7 @@ void timeZone::settime(int hour,int min,int sec,std::string tzone)  {
 }
 
 timeZone::timeZone(){
+  (hr,min,sec)=0;
   clockType::settime(0,0,0);
    zone= "africa";
 }
@@ -100,10 +103,11 @@ timeZone::timeZone(){
 main(){
 
   timeZone Time;
+  clockType time2;
   studenType guess[arrlim];
   studenType clen;
    
-  int hour = 12;
+  int hour;
   int min,sec;
 
    guess[1] = {"anaji","young","12333"};
@@ -111,9 +115,9 @@ main(){
   //collect(guess);
   //student(clen);
  int *collecttime = Time.time(&hour,&min,&sec);
- 
- std::cout << collecttime[1]<<std::endl;
-
+  time2.printTime();
+// std::cout << collecttime[1]<<std::endl;
+Time.equaltime(time2) ? std::cout<<"E"<<std::endl : std::cout<<"F"<<std::endl;  
 return 0;
 
 
