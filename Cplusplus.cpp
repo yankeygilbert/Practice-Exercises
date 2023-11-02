@@ -76,15 +76,12 @@ class timeZone:public clockType{
     void settime(int,int,int,std::string) ;
     timeZone();
     
-   private:
-    int hr,min,sec; 
+ 
 };
 
 // derived class implementaiton
 int *timeZone::time(int *hour,int *mins,int *secs){
-  hr = *hour;
-  min= *mins;
-  sec= *secs;
+  
   int *p[3]={hour,mins,secs};
  
   return *p;
@@ -94,9 +91,9 @@ void timeZone::settime(int hour,int min,int sec,std::string tzone)  {
     zone = tzone;
 }
 
+//constructor 
 timeZone::timeZone(){
-  (hr,min,sec)=0;
-  clockType::settime(0,0,0);
+  clockType::settime(1,2,5);
    zone= "africa";
 }
 
