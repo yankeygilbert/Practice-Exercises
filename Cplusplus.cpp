@@ -1,16 +1,27 @@
 #include <iostream>
 #define arrlim 100
 
+// class definition
 class clockType{
   private:
     int hr,min,sec;
+    static int count;
   
   public:
+  
     void settime(int,int,int);
     void gettime() const;
     void timer(int,int,int) const;
+    bool equaltime(const clockType &) const;
+    clockType();
 };
 
+//class implementation
+
+clockType::clockType(){
+  (hr,min,sec)=0;
+ 
+}
 void clockType::settime(int hour,int mins,int secs){
    hr = hour;
    min = mins;
@@ -30,8 +41,13 @@ void clockType::timer(int hour, int mins, int secs) const{
       }
     }
 }
-struct studenType{
+bool clockType::equaltime(const clockType &compClock) const {
+  return(hr == compClock.hr && min == compClock.min && sec == compClock.sec);
+}
 
+// Structure definition 
+struct studenType{
+  
   std::string home;
   std::string type;
   std::string address;
@@ -50,17 +66,55 @@ struct studenType student(studenType &structvar){
   return structvar;
 }
 
+//Derived class definition
+class timeZone:public clockType{
+  public:
+    std::string zone;
+    int *time(int *,int *,int *);
+    void settime(int,int,int,std::string) ;
+    timeZone();
+    
+   private:
+    int hr,min,sec; 
+};
+
+// derived class implementaiton
+int *timeZone::time(int *hour,int *mins,int *secs){
+  hr = *hour;
+  min= *mins;
+  sec= *secs;
+  int *p[3]={hour,mins,secs};
+ 
+  return *p;
+}
+void timeZone::settime(int hour,int min,int sec,std::string tzone)  {
+    clockType::settime(hour,min,sec);
+    zone = tzone;
+}
+
+timeZone::timeZone(){
+  clockType::settime(0,0,0);
+   zone= "africa";
+}
+
 main(){
-  
-   studenType guess[arrlim];
-   studenType clen;
-  
+
+  timeZone Time;
+  studenType guess[arrlim];
+  studenType clen;
+   
+  int hour = 12;
+  int min,sec;
 
    guess[1] = {"anaji","young","12333"};
    
-  collect(guess);
-  student(clen);
+  //collect(guess);
+  //student(clen);
+ int *collecttime = Time.time(&hour,&min,&sec);
+ 
+ std::cout << collecttime[1]<<std::endl;
 return 0;
+
+
   
 }
-
