@@ -1,19 +1,30 @@
 #include <iostream>
 #define arrlim 100
 
+ template <typename Type>
+ Type equal(Type val1,Type val2){
+    if(sizeof(Type) == 1){
+      val1=val2;
+    }
+   if(sizeof(Type) == 4 || sizeof(Type)==2 ){
+      return (val1+val2);
+    }
+ }
+
 // class definition
 class clockType{
   private:
     int hr,min,sec;
-    static int count;
+    std::string tzone;
   
   public:
-  
     void settime(int,int,int);
     void printTime() const;
     void timer(int,int,int) const;
     bool equaltime(const clockType &) const;
+  
     clockType();
+    
 };
 
 //class implementation
@@ -24,6 +35,7 @@ clockType::clockType(){
   sec=0;
  
 }
+
 void clockType::settime(int hour,int mins,int secs){
    hr = hour;
    min = mins;
@@ -71,6 +83,7 @@ struct studenType student(studenType &structvar){
 //Derived class definition
 class timeZone:public clockType{
   public:
+    
     std::string zone;
     int *time(int *,int *,int *);
     void settime(int,int,int,std::string) ;
@@ -80,8 +93,9 @@ class timeZone:public clockType{
 };
 
 // derived class implementaiton
-int *timeZone::time(int *hour,int *mins,int *secs){
-  
+
+int* timeZone::time(int *hour,int *mins,int *secs){
+
   int *p[3]={hour,mins,secs};
  
   return *p;
@@ -97,26 +111,59 @@ timeZone::timeZone(){
    zone= "africa";
 }
 
-main(){
+ class functionOverload{
+    public:
+     
+      functionOverload(int*,int*,int*);
+      ~functionOverload();
+      friend functionOverload operator+ (const functionOverload&,const functionOverload&);
 
+     private:
+       int val1,val2,val3;
+ };
+
+ functionOverload::~functionOverload(){
+  
+ }
+ functionOverload::functionOverload(int *v1,int *v2, int* v3){
+  val1= *v1;
+  val2= *v2;
+  val3 =*v3;
+  std::cout<< v1 <<":"<< val1 <<std::endl;
+
+ }
+
+  functionOverload operator+ (const functionOverload &otherClass1, const functionOverload &othercalss2) {
+
+  }
+
+main(){
   timeZone Time;
   clockType time2;
+  clockType timeess;
   studenType guess[arrlim];
   studenType clen;
-   
-  int hour;
-  int min,sec;
 
-   guess[1] = {"anaji","young","12333"};
+  int hour=3;
+  int min=6;
+  int sec=45;
+ 
+
+ int y = equal<int>(hour,min);
+  std::cout<< y<<std::endl;
+
+   //guess[1] = {"anaji","young","12333"};
    
   //collect(guess);
-  //student(clen);
- int *collecttime = Time.time(&hour,&min,&sec);
-  time2.printTime();
-// std::cout << collecttime[1]<<std::endl;
-Time.equaltime(time2) ? std::cout<<"E"<<std::endl : std::cout<<"F"<<std::endl;  
-return 0;
+ // student(clen);
+ //int *collecttime = Time.time(&hour,&min,&sec);
+ //time2.printTime();
+ //std::cout << collecttime[1]<<std::endl;
+ //Time.equaltime(time2) ? std::cout<<"E"<<std::endl : std::cout<<"F"<<std::endl;
+
+  //functionOverload obj1(&hour,&min,&sec);
 
 
-  
+ return 0;
+
 }
