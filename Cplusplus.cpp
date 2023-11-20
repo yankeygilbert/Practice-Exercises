@@ -2,14 +2,25 @@
 #define arrlim 100
 
  template <typename Type>
- Type equal(Type val1,Type val2){
-    if(sizeof(Type) == 1){
-      val1=val2;
+ Type equal(Type &val1,Type &val2){
+    if(sizeof(Type) != 2 || sizeof(Type) != 4){
+      return (val1=val2);
     }
    if(sizeof(Type) == 4 || sizeof(Type)==2 ){
-      return (val1+val2);
+     
     }
  }
+
+ template <typename classtype>
+ class testing{
+    public:
+      classtype add(classtype val1,classtype val2);
+  };
+
+  template<typename classtype>
+  classtype testing<classtype>::add(classtype val1,classtype val2){
+
+  }
 
 // class definition
 class clockType{
@@ -147,10 +158,10 @@ main(){
   int hour=3;
   int min=6;
   int sec=45;
- 
-
- int y = equal<int>(hour,min);
-  std::cout<< y<<std::endl;
+ timeess.settime(0,0,0);
+ time2.settime(1,2,3);
+ equal<clockType>(time2,timeess);
+ time2.printTime();
 
    //guess[1] = {"anaji","young","12333"};
    
