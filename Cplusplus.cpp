@@ -1,10 +1,15 @@
-#include <iostream>
 #include <iomanip>
 #include <fstream>
 #include "headerfile.h"
+#include <iostream>
+#include <cstring>
+#include <vector>
+
 
 
 main(){
+  std::vector<int> vecInt;
+  
   timeZone Time;
   clockType time2;
   clockType timeess;
@@ -48,5 +53,11 @@ main(){
  std::cout<<argvet('a','b')<<std::endl;
  obj= t1 + t2;
  std::cout<<obj.val3;
+
+ std::string giri ="juserulama";
+ giri.replace(2,3,"hee");
+
+
  return 0;
+
 }

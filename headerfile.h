@@ -3,6 +3,8 @@
   #define argvet(a,b) a+b
 #endif
 #include <iostream>
+#include <string>
+
 
  template <typename Type>
       Type equal(Type &val1,Type &val2){
