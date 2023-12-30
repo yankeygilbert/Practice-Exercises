@@ -1,14 +1,16 @@
 from collections import deque
 import math
 import json
+"""
 def my_function():
      '''home homie\n
         we  are happy here'''
-#print(my_function.__doc__)
+print(my_function.__doc__)
 
-def functon(prompt, home='shit'):
-    value = input(prompt)
-    return lambda: print(home+" "+value)
+
+def functon( prompt= input("enter a number \n"), home='shit'):
+   return lambda: print(home+" "+value)
+ 
 a,b=2,3
 lambda a,b: print(a+b)
 
@@ -39,10 +41,10 @@ v = set('adbcdde')
 qt= set('abufusein')
 
 print(sorted(v|qt))
-
+"""
 dicta = {x: x**2 for x in range(10)}
 print(dicta)
-
+'''
 print(dict(sape=14,magor=74))
 
 questions = ['name', 'quest', 'favorite color']
@@ -77,4 +79,4 @@ for i in enumerate(json.load(file)):
 file.close()
 
 hope ='svare'
-print('{!r}'.format(hope))
+print('{!r}'.format(hope))'''
