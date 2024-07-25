@@ -1,0 +1,35 @@
+{
+    "version": "2012-10-17",
+    "Statement":[
+        {
+            "sid": "Get Buckets",
+            "Effect":"Allow",
+            "Action":[
+                "s3:ListAllBuckets"
+            ],
+            "Resource": "*"
+        },
+
+        {
+            "sid": "List Bucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:S3:::mybucket/*"
+        },
+        {
+            "sid": "GET PUT DELETE OBJ",
+            "Effect": "Allow",
+            "Action":[
+                "s3:GetObj",
+                "s3:PutObj",
+                "s3:DeleteObj"
+            ],
+            "Resource": "arn:aws:s3::mybucket/*"
+        }
+
+    ]
+
+    
+}

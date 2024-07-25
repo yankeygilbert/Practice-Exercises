@@ -1,0 +1,13 @@
+{
+    "version": "2012-10-17",
+    "Statement":[
+        {
+        "sid":"Assume Role in Account B",
+        "Effect": "Allow",
+        "Action":[
+            "sts:AssumeRole"
+        ],
+        "Resource": "arn:aws:iam::123456789012:role/policy"
+    }
+    ]
+}
