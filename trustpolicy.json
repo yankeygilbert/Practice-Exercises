@@ -1,0 +1,17 @@
+{
+    "version": "2012-10-17",
+    "Statement":[
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Aws": "arn:aws:iam::222445567888982:user/JohnDoe"
+            },
+            "Action": "sts:AssumeRole",
+            "condition":{
+                "stringLike":{
+                    "iam:username":"JohnDoe"
+                }
+            }
+        }
+    ]
+}
