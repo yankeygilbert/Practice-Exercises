@@ -1,0 +1,2 @@
+{'first_name': 'ji', 'last_name': 'ji', 'D_O_B': '2012-12-12', 'weight': 56, 'Height': 56, 'Chl_Level': 70}
+{'first_name': '22', 'last_name': '34', 'D_O_B': '54', 'weight': 70, 'Height': 33, 'Chl_Level': 44}
